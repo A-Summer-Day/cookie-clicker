@@ -14,10 +14,12 @@ import SocketIO from 'socket.io-client';
 
 window.Vue = require('vue').default;
 
+const options = { };
+
 Vue.use(BootstrapVue);
 Vue.use(new VueSocketIO({
         debug: true,
-        connection: SocketIO('http://127.0.0.1:8000/'), //options object is Optional
+        connection: SocketIO('http://127.0.0.1:8000/', options),
         vuex: {
             store,
             actionPrefix: "SOCKET_",
