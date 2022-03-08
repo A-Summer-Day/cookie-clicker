@@ -19,12 +19,8 @@ const options = { };
 Vue.use(BootstrapVue);
 Vue.use(new VueSocketIO({
         debug: true,
-        connection: SocketIO('http://127.0.0.1:8000/', options),
-        vuex: {
-            store,
-            actionPrefix: "SOCKET_",
-            mutationPrefix: "SOCKET_"
-        }
+        connection: SocketIO('https://cookie-clicker-app-summer.herokuapp.com/', options),
+        //connection: SocketIO('http://127.0.0.1:8000/', options),
     })
 );
 
