@@ -6,23 +6,13 @@
 
 require('./bootstrap');
 
-import BootstrapVue from "bootstrap-vue";
 import  'bootstrap-vue/dist/bootstrap-vue.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import VueSocketIO from "vue-socket.io";
-import SocketIO from 'socket.io-client';
 
+
+window.Pusher = require('pusher-js');
 window.Vue = require('vue').default;
 
-const options = { };
-
-Vue.use(BootstrapVue);
-Vue.use(new VueSocketIO({
-        debug: true,
-        connection: SocketIO('https://cookie-clicker-app-summer.herokuapp.com/', options),
-        //connection: SocketIO('http://127.0.0.1:8000/', options),
-    })
-);
 
 /**
  * The following block of code may be used to automatically register your

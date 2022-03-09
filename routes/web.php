@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Events\UpdateScore;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 });*/
 Route::get('/', 'HomeController@index')->name('index');
 Route::put('/update-score', 'HomeController@updateScore')->name('update-score');
+Route::get('/broadcast', 'HomeController@broadcast')->name('broadcast-score');
+/*Route::get('/broadcast', function() {
+    broadcast(new UpdateScore());
+});*/
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

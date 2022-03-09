@@ -1,13 +1,14 @@
 <template>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Cookie Clicker</div>
+                    <div class="card-header"><h1 class="h3 mb-0 text-gray-800">Cookie Clicker</h1></div>
 
                     <div class="card-body">
                         <p>Current Score is: {{ score_object }}</p>
-                        <a href="javascript:;"  class="btn btn-md btn-primary" @click="incrementScore" >Score</a>
+                        <a href="javascript:;" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm mb-1" @click="incrementScore" >Score</a>
+
                     </div>
 
 
@@ -38,10 +39,18 @@
 
                });
 
-           }
+           },
+
         },
         mounted() {
-            console.log('Component mounted.')
+            console.log('Component mounted.');
+        },
+        created() {
+            window.Echo.channel('channel')
+                .listen('.UpdateScore', (e) => {
+                    console.log(e);
+                    this.score_object = e.score;
+                })
         }
     }
 </script>
